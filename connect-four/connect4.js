@@ -76,7 +76,9 @@ function placeInTable(y, x) {
 	// TODO: make a div and insert into correct table cell
   let piece = document.createElement("div");
   let target = document.getElementById(`${y}-${x}`);
-  piece.appendChild(target);
+  
+  target.appendChild(piece);
+  
   piece.classList.add("piece", `Player${currPlayer}`);
 
 }

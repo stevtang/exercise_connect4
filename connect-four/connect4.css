@@ -15,11 +15,11 @@
   height: 80%;
   border-radius: 50%;
 }
-.piece .Player1 {
+.piece.Player1 {
 
   background-color: red;
 }
-.piece .Player2 {
+.piece.Player2 {
   
   background-color: blue;
 }
