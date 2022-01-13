@@ -19,8 +19,16 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-	board = new Array(HEIGHT).fill(Array(WIDTH).fill(null));
-	console.log(board);
+	// board = new Array(HEIGHT).fill(Array(WIDTH).fill(null));
+	// console.log(board);
+  // board = new Array(HEIGHT).fill([null]);
+
+  for(let y = 0; y < HEIGHT; y++){
+    board[y] = [null];
+    for(let x = 0; x < WIDTH; x++){
+      board[y][x] = null;
+    }
+  }
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
@@ -67,10 +75,10 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return bottom empty y (null if filled) */
 
 function findSpotForCol(x) {
-	// TODO: write the real version of this, rather than always returning 5
-  for(let y=0; y < HEIGHT; y++){
-    if(board[y][x] !== null){
-      return (y-1);
+	
+  for(let y=HEIGHT-1; y >= 0; y--){
+    if(board[y][x] === null){
+      return y;
     }
   } 
   return null;
@@ -101,12 +109,15 @@ function endGame(msg) {
 /** handleClick: handle click of column top to play piece */
 
 function handleClick(evt) {
+  console.log(board);
 	// get x from ID of clicked cell
 	let x = +evt.target.id;
 
 	// get next spot in column (if none, ignore click)
 	let y = findSpotForCol(x);
+  console.log("x, y", x , y);
 	if (y === null) {
+    alert("col is full");
 		return;
 	}
 
