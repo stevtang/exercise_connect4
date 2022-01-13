@@ -55,9 +55,11 @@ function makeHtmlBoard() {
 	// uses WIDTH to create table cells for each row
 	for (let y = 0; y < HEIGHT; y++) {
 		// Create a table row element and assign to a "row" variable
-
 		const row = document.createElement('tr');
 
+
+
+    
 		for (let x = 0; x < WIDTH; x++) {
 			// TODO: Create a table cell element and assign to a "cell" variable
 			let cell = document.createElement('td');
